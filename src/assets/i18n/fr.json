@@ -1,0 +1,30 @@
+{
+	"HELLO": {},
+	"HOME": {
+		"MESSAGES": {
+			"WARN1": {
+				"value": "This is the first warning message",
+				"id": "HOME.MESSAGES.WARN1",
+				"meaning": "this is a warning message",
+				"description": "this is a description"
+			},
+			"WARN2": {
+				"value": "This is the first warning message",
+				"id": "HOME.MESSAGES.WARN2",
+				"meaning": "this is a warning message",
+				"description": "this is a description"
+			}
+		},
+		"SELECT": {},
+		"WELCOME": {}
+	},
+	"TESTING": {
+		"KEY": ""
+	},
+	"testing an id": {
+		"value": "This is the first warning message",
+		"id": "testing an id",
+		"meaning": "this is a warning message",
+		"description": "this is a description"
+	}
+}
