@@ -1,30 +1,43 @@
 {
-	"HELLO": {},
 	"HOME": {
-		"MESSAGES": {
-			"WARN1": {
-				"value": "This is the first warning message",
-				"id": "HOME.MESSAGES.WARN1",
-				"meaning": "this is a warning message",
-				"description": "this is a description"
+		"MESSAGE": {
+			"ONE": {
+				"value": "hello {{value}}",
+				"target": "hola {{value}}",
+				"id": "HOME.MESSAGE.ONE",
+				"meaning": "say hello to a user",
+				"description": "say hello to a user",
+				"location": {
+					"sourcefile": "src/app/app.component.ts",
+					"linenumber": 33
+				}
 			},
-			"WARN2": {
-				"value": "This is the first warning message",
-				"id": "HOME.MESSAGES.WARN2",
-				"meaning": "this is a warning message",
-				"description": "this is a description"
+			"TWO": {
+				"value": "Please select a language",
+				"target": "Por favor, seleccione un idioma",
+				"id": "HOME.MESSAGE.TWO",
+				"meaning": "command for a user",
+				"description": "command for a user",
+				"location": {
+					"sourcefile": "src/app/app.component.ts",
+					"linenumber": 40
+				}
 			}
-		},
-		"SELECT": {},
-		"WELCOME": {}
+		}
 	},
-	"TESTING": {
-		"KEY": "aaaaaaaaaaaa"
-	},
-	"testing an id": {
-		"value": "This is the first warning message",
-		"id": "testing an id",
-		"meaning": "this is a warning message",
-		"description": "this is a description"
+	"TEST": {
+		"MESSAGE": {
+			"ONE": {
+				"value": "hello test",
+				"target": "",
+				"id": "TEST.MESSAGE.ONE",
+				"meaning": "say hello to a user",
+				"description": "say hello to a user",
+				"location": {
+					"sourcefile": "src/app/test/deep/deeper/deepest/hello.ts",
+					"linenumber": 9
+				}
+			}
+		}
 	}
 }

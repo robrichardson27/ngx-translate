@@ -3,7 +3,7 @@
 		"MESSAGE": {
 			"ONE": {
 				"value": "hello {{value}}",
-				"target": "",
+				"target": "こんにちは {{value}}",
 				"id": "HOME.MESSAGE.ONE",
 				"meaning": "say hello to a user",
 				"description": "say hello to a user",
@@ -14,7 +14,7 @@
 			},
 			"TWO": {
 				"value": "Please select a language",
-				"target": "",
+				"target": "言語を選択してください",
 				"id": "HOME.MESSAGE.TWO",
 				"meaning": "command for a user",
 				"description": "command for a user",

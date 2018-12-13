@@ -1,54 +1,48 @@
 import {Component, OnInit} from '@angular/core';
-import {NgxWrapperService} from './ngx-wrapper.service';
-import { I18nDef } from '@ngx-translate/i18n-polyfill';
+import {Translate, NgxWrapperService} from './ngx-wrapper.service';
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <div>
-      <h2>{{ 'HELLO' | translate }}</h2>
-      <label>
-        {{ 'HOME.SELECT' | translate }}
-        <select #langSelect (change)="wrapper.useLang(langSelect.value)">
-          <option *ngFor="let lang of wrapper.getLangs()" [value]="lang" [selected]="lang === wrapper.currentLang()">{{ lang }}</option>
-        </select>
-      </label>
-      <h2>{{ 'HOME.WELCOME' | translate:user }}</h2>
-      <h3 [id]="message1.id">{{ message1 | async }}</h3>
+    selector: 'app-root',
+    template: `
+        <div>
+            <label>
+                {{ selectLanguage | async }}
+                <select #langSelect (change)="ecoTranslate.useLang(langSelect.value)">
+                    <option *ngFor="let lang of ecoTranslate.getLangs()" [value]="lang"
+                            [selected]="lang === ecoTranslate.currentLang()">{{ lang }}
+                    </option>
+                </select>
+            </label>
+            <h3>{{ greetingMsg | async }}</h3>
 
-    </div>
-  `,
+        </div>
+    `,
 })
 export class AppComponent implements OnInit {
-  constructor(public wrapper: NgxWrapperService) {
-    wrapper.init();
-  }
+    constructor(public ecoTranslate: NgxWrapperService) {
+        ecoTranslate.init();
+    }
 
-  message = this.wrapper.i18n('TESTING.KEY');
+    user = {
+        name: 'Robert',
+        age: '28'
+    };
 
+    @Translate({
+        value: 'hello {{value}}',
+        id: 'HOME.MESSAGE.ONE',
+        meaning: 'say hello to a user',
+        description: 'say hello to a user'
+    })
+    greetingMsg = this.ecoTranslate.stream('HOME.MESSAGE.ONE', this.user.name);
+    @Translate({
+        value: 'Please select a language',
+        id: 'HOME.MESSAGE.TWO',
+        meaning: 'command for a user',
+        description: 'command for a user'
+    })
+    selectLanguage = this.ecoTranslate.stream('HOME.MESSAGE.TWO');
 
-  message1 = this.wrapper.i18n({
-    value: 'This is the first warning message',
-    id: 'HOME.MESSAGES.WARN1',
-    meaning: 'this is a warning message',
-    description: 'this is a description'
-  });
-
-  message1 = this.wrapper.i18n({
-    value: 'This is the first warning message',
-    id: 'testing an id',
-    meaning: 'this is a warning message',
-    description: 'this is a description'
-  });
-
-//  message = this.wrapper.i18n('THIS.TEST.TWO');
-  //message2 = this.wrapper.i18n('loginWarningMessage');
-
-  user = {
-    name: "Robert",
-    age: "28"
-  };
-
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 }
